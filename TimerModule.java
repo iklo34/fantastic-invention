@@ -17,7 +17,7 @@ public class TimerModule extends TimerTask {
     public void run() {
         if (seconds > 0) {
             seconds--;
-            Platform.runLater(() -> controller.updateSeconds(seconds)); // Оновлюємо лейбл
+            Platform.runLater(() -> controller.updateSeconds(seconds));
         } else {
             Platform.runLater(controller::onTimesUp);
             cancel();

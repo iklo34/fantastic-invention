@@ -45,7 +45,7 @@ public class Controller {
 
     public void startTimer() {
         if (timerModule != null) {
-            timer.schedule(timerModule, 0, 1000); // Запуск таймера
+            timer.schedule(timerModule, 0, 1000);
         }
     }
     public Controller() {
@@ -56,8 +56,7 @@ public class Controller {
         String text = inputTextArea.getText();
         setText(text);
         inputTextArea.requestFocus();
-        setupUI(); // Додайте цей рядок
-        // Зробити поле з вводом неактивним
+        setupUI();
         inputTextArea.setEditable(false);
         timerModule = new TimerModule(this);
 
@@ -79,10 +78,9 @@ public class Controller {
         Optional<String> result = dialog.showAndWait();
         result.ifPresent(text -> {
             inputTextArea.setText(text);
-            startTyping(); // Почати писати після введення тексту
-            // Зробити поле з вводом невидимим після введення тексту
+            startTyping();
             inputTextArea.setVisible(false);
-            // Зробити текст у TextArea неактивним
+
             inputTextArea.setEditable(false);
 
         });
@@ -96,7 +94,7 @@ public class Controller {
         if (firstType) {
             firstType = false;
             timerModule = new TimerModule(this);
-            timer.schedule(timerModule, 0, 1000); // Запускаємо таймер
+            timer.schedule(timerModule, 0, 1000);
         }
     }
 
